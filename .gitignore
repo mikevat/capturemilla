@@ -3,4 +3,3 @@ config/*
 */.ipynb_checkpoints/*
 */__pycache__/*
 *.pyc
-*.ipynb
