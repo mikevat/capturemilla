@@ -2,7 +2,7 @@
 -- added column recip_is_contract (recipient is contract)
 -- added column transaction_status (for block < 4370000 receipt_status is null,
 -- so status is in traces table when trace_address is null)
-CREATE TABLE `capture-milla-259710.capture_milla.transactions`
+CREATE TABLE IF NOT EXISTS `capture-milla-259710.capture_milla.transactions`
 AS
 SELECT
   trans.hash,

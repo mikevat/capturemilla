@@ -12,7 +12,7 @@ CREATE TEMP FUNCTION
 ;
 
 --Create contract temporary table from traces:
-CREATE TABLE `capture_milla.tmp_contracts`
+CREATE TABLE IF NOT EXISTS `capture_milla.tmp_contracts`
 	PARTITION BY created_date
 	CLUSTER BY created_tx_status, category, creator_address, address
 AS
@@ -61,10 +61,10 @@ WHERE NOT EXISTS
   AND foo.created_tx_hash  = `capture_milla.tmp_contracts`.created_tx_hash 
 )
 ;
-CREATE TABLE `capture_milla.tmp_contracts0` AS SELECT * FROM `capture_milla.tmp_contracts`;
+CREATE TABLE IF NOT EXISTS `capture_milla.tmp_contracts0` AS SELECT * FROM `capture_milla.tmp_contracts`;
 
 -- Add opcodes (and opcodes without parameters) as string and create final table
-CREATE TABLE `capture_milla.contracts`
+CREATE TABLE IF NOT EXISTS `capture_milla.contracts`
 	PARTITION BY created_date
 	CLUSTER BY created_tx_status, category, creator_address, address
 AS

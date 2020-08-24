@@ -1,5 +1,5 @@
 -- sumarize transactions per day
-CREATE TABLE `capture_milla.transactions_pd` AS
+CREATE TABLE IF NOT EXISTS `capture_milla.transactions_pd` AS
 SELECT
   DATE(trans.block_timestamp) AS block_date,
   COUNT(*) as trans_count,

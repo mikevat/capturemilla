@@ -1,5 +1,5 @@
 -- summarize trace types per day
-CREATE TABLE `capture_milla.traces_by_type_pd` AS
+CREATE TABLE IF NOT EXISTS `capture_milla.traces_by_type_pd` AS
 SELECT
   DATE(block_timestamp) date,
   SUM(CASE WHEN trace_type = 'call' THEN 1 ELSE 0 END) AS trace_type_call,

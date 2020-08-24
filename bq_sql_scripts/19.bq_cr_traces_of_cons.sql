@@ -2,7 +2,7 @@
 --query needs to be optimized (various columns from con removed)
 -- read  206.2 GB
 -- took 3mins 13secs
-CREATE TABLE `capture_milla.traces_of_cons` AS 
+CREATE TABLE IF NOT EXISTS `capture_milla.traces_of_cons` AS 
 SELECT
  tr.value
  ,tr.trace_type

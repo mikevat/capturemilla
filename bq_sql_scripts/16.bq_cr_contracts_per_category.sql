@@ -1,6 +1,6 @@
 -- Contracts per category
 
-CREATE TABLE `capture_milla.contracts_per_category` AS
+CREATE TABLE IF NOT EXISTS `capture_milla.contracts_per_category` AS
 SELECT 
   category,
   count(*) as contracts,

@@ -12,7 +12,7 @@ CREATE TEMP FUNCTION
 ;
 
 --Create temp table with contracts from transactions
-CREATE TABLE `capture_milla.tmp_contracts_ftrans`
+CREATE TABLE IF NOT EXISTS `capture_milla.tmp_contracts_ftrans`
 AS
 SELECT
 	receipt_contract_address AS address
@@ -39,7 +39,7 @@ WHERE
 ;
 
 -- Add opcodes as string and create final table
-CREATE TABLE `capture_milla.contracts_ftrans`
+CREATE TABLE IF NOT EXISTS `capture_milla.contracts_ftrans`
 	PARTITION BY created_date
 	CLUSTER BY created_tx_status, category, creator_address, address
 AS
