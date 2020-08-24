@@ -1,7 +1,7 @@
-CREATE TABLE
-  `capture_milla.bytecode_descriptives` AS
+CREATE TABLE IF NOT EXISTS
+  `capture_milla.opcode_descriptives` AS
 SELECT
-  con.bytecode,
+  con.opcode_str_wo_params,
   COUNT(*) AS n,
   COUNT(DISTINCT category) AS d_category,
   COUNT(DISTINCT creator_address) AS d_creators,
@@ -15,4 +15,4 @@ SELECT
 FROM
   `capture_milla.contracts` con
 GROUP BY
-  con.bytecode
+  con.opcode_str_wo_params
